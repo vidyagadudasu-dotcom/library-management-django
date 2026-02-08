@@ -1,0 +1,16 @@
+<h2>Welcome, {{ student.name }}</h2>
+
+<h3>Issued Books:</h3>
+<ul>
+    {% for issue in issued_books %}
+        <li>
+            {{ issue.book.title }} |
+            Issued: {{ issue.issue_date }} |
+            Returned: {{ issue.return_date|default:"Not returned" }}
+        </li>
+    {% empty %}
+        <li>No books issued</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'student_logout' %}">Logout</a>
