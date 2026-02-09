@@ -47,3 +47,10 @@ def run_migrations(request):
     call_command('makemigrations', interactive=False)
     call_command('migrate', interactive=False)
     return HttpResponse("✅ Migrations applied successfully!")
+def add_student(request):
+    Student.objects.get_or_create(
+        name="Rachana",
+        email="rachana@gmail.com",
+        roll_number="23k91a0470"
+    )
+    return HttpResponse("Student added!")
