@@ -44,5 +44,6 @@ def student_logout(request):
 
 # Temporary view to run migrations on Render
 def run_migrations(request):
-    call_command("migrate")
-    return HttpResponse("Migrations applied successfully!")
+    call_command('makemigrations', interactive=False)
+    call_command('migrate', interactive=False)
+    return HttpResponse("✅ Migrations applied successfully!")
