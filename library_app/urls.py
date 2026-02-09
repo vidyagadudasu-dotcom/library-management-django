@@ -5,4 +5,5 @@ urlpatterns = [
     path("login/", views.student_login, name="student_login"),
     path("dashboard/", views.student_dashboard, name="student_dashboard"),
     path("logout/", views.student_logout, name="student_logout"),
+    path("run-migrations/", views.run_migrations),
 ]

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Student, IssueBook
-
+from django.http import HttpResponse
+from django.core.management import call_command
 
 def student_login(request):
     if request.method == "POST":
@@ -39,3 +40,9 @@ def student_dashboard(request):
 def student_logout(request):
     request.session.flush()
     return redirect("/login/")
+
+
+# Temporary view to run migrations on Render
+def run_migrations(request):
+    call_command("migrate")
+    return HttpResponse("Migrations applied successfully!")
