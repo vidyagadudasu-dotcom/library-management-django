@@ -1,0 +1,12 @@
+<form method="POST" action="{% url 'student_login' %}">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="roll_number" placeholder="Roll Number" required>
+    <button type="submit">Login</button>
+</form>
+
+{% if messages %}
+  {% for message in messages %}
+    <p style="color:red;">{{ message }}</p>
+  {% endfor %}
+{% endif %}
